@@ -1,3 +1,4 @@
+import argparse
 import random
 
 
@@ -19,7 +20,7 @@ class Card:
     def _check(self, n):
         try:
             self._card.remove(n)
-            print(f"Player {self.owner.name} found {n} in his card.")
+            print(f"{self.owner.name} found {n} in his card.")
         except:
             pass
 
@@ -65,7 +66,14 @@ class Game:
         return bag
 
 if __name__ == "__main__":
-    cards = [Card(Player("John")), Card(Player("Amadeus"))]
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-n', '--number',
+                        help='players number',
+                        default=1,
+                        type=int)
+    args = parser.parse_args()
+
+    cards = [Card(Player(f"J_{i}_hn")) for i in range(args.number)]
     game = Game(cards)
     for step in game:
         pass
