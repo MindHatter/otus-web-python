@@ -1,0 +1,18 @@
+{% extends 'courses/base.html' %}
+
+{% block container %}
+
+    <div class="course_list">
+        <h1>Курсы</h1>
+        <ul>
+            {% for item in object_list %}
+                <li>
+                    <a href="{% url 'courses:course_detail' pk=item.pk %}">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

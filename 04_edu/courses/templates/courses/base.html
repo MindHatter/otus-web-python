@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {{ page_name|title|default:"страница" }}
+    </title>
+    {% block css %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+
+{% block menu %}
+    <div class="menu">
+        <a href="{% url 'courses:course_list' %}">главная</a>
+    </div>
+{% endblock %}
+
+{% block container %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+</body>
+</html>
