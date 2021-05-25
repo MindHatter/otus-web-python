@@ -20,7 +20,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('', include('courses.urls', namespace='courses')),
-    path('contact', include('mailer.urls', namespace='mailer')),
+    path('frontend/', include('frontend.urls', namespace='frontend')),
+    path('contact/', include('mailer.urls', namespace='mailer')),
     path('api/', include('courses.api.urls', namespace='api')),
     path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
     path('admin/', admin.site.urls),
